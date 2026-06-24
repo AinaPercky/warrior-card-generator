@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { toPng, toJpeg } from 'html-to-image';
 // @ts-ignore
 import cardBackground from './assets/images/card_background_1782290811054.jpg';
+import explorateurBackground from './assets/images/fond_explorateur.png';
 import { 
   Sparkles, 
   Upload, 
@@ -410,30 +411,61 @@ export const getCardAmbiance = (classeStr: string, activeTheme: any) => {
         fontTitle: "font-oswald font-extrabold tracking-wide uppercase",
         fontData: "font-montserrat font-semibold",
         fontCitation: "font-playfair italic",
-        accentColor: "text-cyan-400",
-        accentBorder: "border-cyan-600/80",
-        accentGlow: "shadow-[0_0_15px_rgba(34,211,238,0.5)]",
-        themeBgGradient: "from-cyan-950/90 via-sky-950/80 to-emerald-950/95", 
-        outerBorder: "border-amber-700/90 shadow-[0_0_20px_rgba(180,83,9,0.5),inset_0_0_12px_rgba(180,83,9,0.3)]", 
-        innerBorder: "border-amber-800/60",
-        nameSectionStyle: "border-2 border-amber-800/80 bg-stone-900/90 shadow-[0_4px_10px_rgba(0,0,0,0.85),inset_0_1.5px_3px_rgba(255,255,255,0.15)] rounded-xl", 
-        textBoxStyle: "border-2 border-amber-700/60 bg-stone-900/95 shadow-[inset_0_2px_4px_rgba(0,0,0,0.85)] rounded-xl",
-        portraitBorderStyle: "border-2 border-cyan-600/60 shadow-[0_0_12px_rgba(6,182,212,0.3)]",
+        accentColor: "text-[#75b9be]",
+        accentBorder: "border-[#75b9be]/70",
+        accentGlow: "shadow-[0_0_18px_rgba(117,185,190,0.45)]",
+        themeBgGradient: "from-[#0a2a2c]/95 via-[#0d1f1a]/90 to-[#111d10]/95",
+        outerBorder: "border-[#75b9be]/80 shadow-[0_0_22px_rgba(117,185,190,0.4),inset_0_0_14px_rgba(117,185,190,0.15)]",
+        innerBorder: "border-[#a8ccc9]/25",
+        nameSectionStyle: "border-2 border-[#a8ccc9]/60 bg-[#0a1a1a]/90 shadow-[0_4px_12px_rgba(0,0,0,0.85),inset_0_1.5px_3px_rgba(168,204,201,0.1)] rounded-xl",
+        textBoxStyle: "border-2 border-[#b3d6c6]/50 bg-[#0a1a14]/95 shadow-[inset_0_2px_4px_rgba(0,0,0,0.85)] rounded-xl",
+        portraitBorderStyle: "border-2 border-[#75b9be]/65 shadow-[0_0_14px_rgba(117,185,190,0.35),inset_0_0_10px_rgba(168,204,201,0.1)]",
         showRivets: false,
         showScratches: false,
         showBlood: false,
         showEmber: false,
-        citationBoxStyle: "border border-cyan-600/20 bg-black/45",
-        specBoxStyle: "border-2 border-cyan-600/50",
+        citationBoxStyle: "border border-[#c7d66d]/25 bg-[#0a1a0a]/55",
+        specBoxStyle: "border-2 border-[#75b9be]/55",
+// APRÈS
         effectOverlay: (
           <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden rounded-[24px]">
-            <div className="absolute inset-0 bg-cyan-950/20 mix-blend-overlay opacity-40" />
-            <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-amber-400/10 via-transparent to-transparent rotate-[-12deg] transform origin-top-left pointer-events-none" />
-            <div className="absolute -bottom-12 -right-12 w-48 h-48 border border-amber-600/15 rounded-full flex items-center justify-center opacity-25">
-              <div className="w-40 h-40 border border-dashed border-amber-600/20 rounded-full flex items-center justify-center">
-                <div className="w-10 h-10 border border-amber-600/30 rounded-full" />
-              </div>
+            {/* Voile océan profond */}
+            <div className="absolute inset-0 bg-[#0a2a2c]/30 mix-blend-color opacity-50" />
+
+            {/* Rayons de lumière sous-marine — depuis le haut */}
+            <div className="absolute top-0 left-[15%] w-20 h-64 bg-gradient-to-b from-[#a8ccc9]/12 via-[#75b9be]/04 to-transparent rotate-[-8deg] origin-top" />
+            <div className="absolute top-0 left-[45%] w-14 h-48 bg-gradient-to-b from-[#dceab2]/10 via-[#b3d6c6]/04 to-transparent rotate-[4deg] origin-top" />
+            <div className="absolute top-0 right-[12%] w-10 h-40 bg-gradient-to-b from-[#c7d66d]/08 via-transparent to-transparent rotate-[10deg] origin-top" />
+
+            {/* Lueur d'horizon — bande de lumière en bas */}
+            <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-[#75b9be]/15 via-[#a8ccc9]/05 to-transparent" />
+
+            {/* Boussole holographique — coin bas-droit */}
+            <div className="absolute bottom-5 right-5 w-20 h-20 opacity-18">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Cercle extérieur */}
+                <circle cx="40" cy="40" r="36" stroke="#75b9be" strokeWidth="0.8" strokeDasharray="4 3" />
+                {/* Cercle intérieur */}
+                <circle cx="40" cy="40" r="24" stroke="#a8ccc9" strokeWidth="0.5" />
+                {/* Croix cardinale */}
+                <line x1="40" y1="4" x2="40" y2="16" stroke="#a8ccc9" strokeWidth="0.7" />
+                <line x1="40" y1="64" x2="40" y2="76" stroke="#a8ccc9" strokeWidth="0.7" />
+                <line x1="4" y1="40" x2="16" y2="40" stroke="#a8ccc9" strokeWidth="0.7" />
+                <line x1="64" y1="40" x2="76" y2="40" stroke="#a8ccc9" strokeWidth="0.7" />
+                {/* Aiguille Nord — jade */}
+                <polygon points="40,14 37,40 40,36 43,40" fill="#75b9be" opacity="0.9" />
+                {/* Aiguille Sud — beige */}
+                <polygon points="40,66 37,40 40,44 43,40" fill="#dceab2" opacity="0.6" />
+                {/* Centre */}
+                <circle cx="40" cy="40" r="2.5" fill="#a8ccc9" opacity="0.9" />
+              </svg>
             </div>
+
+            {/* Texture papier parchemin — grille fine dorée-verte */}
+            <div className="absolute inset-0 bg-[radial-gradient(#c7d66d_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.04]" />
+
+            {/* Vignette bords */}
+            <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(10,42,44,0.55)] rounded-[24px]" />
           </div>
         )
       };
@@ -1397,8 +1429,11 @@ export default function App() {
               
               {/* FOND GOTHIQUE */}
               <div className="absolute inset-0 z-0 select-none pointer-events-none">
-                <img src={cardBackground} alt="Epic Gothic Background"
-                  className="w-full h-full object-cover brightness-[0.7] contrast-[1.1] saturate-[0.85] transition-all duration-300" />
+                <img
+                  src={parseClasse(formData.classe).mainClass === 'Explorateur' ? explorateurBackground : cardBackground}
+                  alt="Epic Background"
+                  className="w-full h-full object-cover brightness-[0.7] contrast-[1.1] saturate-[0.85] transition-all duration-300"
+                />
                 <div className={`absolute inset-0 bg-gradient-to-b ${cardAmbiance.themeBgGradient} mix-blend-color opacity-85 transition-all duration-300`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/70" />
                 <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
@@ -1651,6 +1686,14 @@ export default function App() {
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundBlendMode: 'multiply',
+                      };
+                    }
+                    if (mainClass === 'Explorateur') {
+                      return {
+                        backgroundImage: `linear-gradient(to bottom, rgba(10, 42, 44, 0.45), rgba(13, 31, 26, 0.9)), url(${explorateurBackground})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundBlendMode: 'normal',
                       };
                     }
                     if (mainClass === 'Penseur') {
