@@ -1,0 +1,6 @@
+{
+  "name": "Warrior Card Generator",
+  "description": "Générateur et éditeur de cartes de guerriers mythologiques et historiques avec exportation HD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
