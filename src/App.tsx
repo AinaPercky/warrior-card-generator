@@ -208,13 +208,13 @@ export const CLASSES_CONFIG: Record<ArchetypeType, ClassDesign> = {
     label: "Explorateur",
     description: "Découverte, expansion du monde connu",
     subTypes: ["Navigateur", "Cartographe", "Terrestre", "Maritime", "Spatial", "Numérique", "Explorateur", "Pionnier"],
-    colors: "Bleu océan · Vert carte · Beige ancien",
-    fontTitle: "font-oswald text-cyan-400",
+    colors: "Teal sombre · Vert mer · Céladon · Vanille",
+    fontTitle: "font-oswald text-[#88d498]",
     fontData: "font-montserrat",
     fontCitation: "font-playfair",
-    background: "Océan · Jungle · Horizon",
-    cadre: "Carte ancienne · Boussole",
-    effects: "Brume · Rayons de soleil"
+    background: "Océan · Jungle · Horizon · Carte ancienne",
+    cadre: "Parchemin · Boussole · Mappemonde",
+    effects: "Brume · Rayons de soleil · Vieilles cartes"
   },
   Savant: {
     emoji: "🔬",
@@ -370,7 +370,7 @@ const renderSpecialtyIcon = (iconName: string | undefined, defaultIcon: string, 
 const getClassIcon = (classeName: string, iconClassName: string = "w-4 h-4") => {
   const { mainClass } = parseClasse(classeName);
   switch (mainClass) {
-    case 'Explorateur': return <Compass className={`${iconClassName} text-cyan-400`} />;
+    case 'Explorateur': return <Compass className={`${iconClassName} text-[#88d498]`} />;
     case 'Savant': return <FlaskConical className={`${iconClassName} text-blue-400`} />;
     case 'Artiste': return <Palette className={`${iconClassName} text-fuchsia-400`} />;
     case 'Fictionnel': return <Film className={`${iconClassName} text-purple-400`} />;
@@ -411,61 +411,131 @@ export const getCardAmbiance = (classeStr: string, activeTheme: any) => {
         fontTitle: "font-oswald font-extrabold tracking-wide uppercase",
         fontData: "font-montserrat font-semibold",
         fontCitation: "font-playfair italic",
-        accentColor: "text-[#75b9be]",
-        accentBorder: "border-[#75b9be]/70",
-        accentGlow: "shadow-[0_0_18px_rgba(117,185,190,0.45)]",
-        themeBgGradient: "from-[#0a2a2c]/95 via-[#0d1f1a]/90 to-[#111d10]/95",
-        outerBorder: "border-[#75b9be]/80 shadow-[0_0_22px_rgba(117,185,190,0.4),inset_0_0_14px_rgba(117,185,190,0.15)]",
-        innerBorder: "border-[#a8ccc9]/25",
-        nameSectionStyle: "border-2 border-[#a8ccc9]/60 bg-[#0a1a1a]/90 shadow-[0_4px_12px_rgba(0,0,0,0.85),inset_0_1.5px_3px_rgba(168,204,201,0.1)] rounded-xl",
-        textBoxStyle: "border-2 border-[#b3d6c6]/50 bg-[#0a1a14]/95 shadow-[inset_0_2px_4px_rgba(0,0,0,0.85)] rounded-xl",
-        portraitBorderStyle: "border-2 border-[#75b9be]/65 shadow-[0_0_14px_rgba(117,185,190,0.35),inset_0_0_10px_rgba(168,204,201,0.1)]",
+        accentColor: "text-[#88d498]",
+        accentBorder: "border-[#1a936f]/70",
+        accentGlow: "shadow-[0_0_18px_rgba(26,147,111,0.5)]",
+        themeBgGradient: "from-[#114b5f]/95 via-[#0d2a1f]/90 to-[#0a1e18]/95",
+        outerBorder: "border-[#1a936f]/80 shadow-[0_0_24px_rgba(26,147,111,0.45),inset_0_0_16px_rgba(136,212,152,0.12)]",
+        innerBorder: "border-[#88d498]/20",
+        nameSectionStyle: "border-2 border-[#1a936f]/65 bg-[#0a1e1a]/90 shadow-[0_4px_12px_rgba(0,0,0,0.85),inset_0_1.5px_3px_rgba(136,212,152,0.08)] rounded-xl",
+        textBoxStyle: "border-2 border-[#1a936f]/50 bg-[#081812]/95 shadow-[inset_0_2px_4px_rgba(0,0,0,0.85)] rounded-xl",
+        portraitBorderStyle: "border-2 border-[#1a936f]/70 shadow-[0_0_16px_rgba(26,147,111,0.4),inset_0_0_10px_rgba(136,212,152,0.08)]",
         showRivets: false,
         showScratches: false,
         showBlood: false,
         showEmber: false,
-        citationBoxStyle: "border border-[#c7d66d]/25 bg-[#0a1a0a]/55",
-        specBoxStyle: "border-2 border-[#75b9be]/55",
-// APRÈS
+        citationBoxStyle: "border border-[#88d498]/25 bg-[#081812]/55",
+        specBoxStyle: "border-2 border-[#1a936f]/55",
         effectOverlay: (
           <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden rounded-[24px]">
-            {/* Voile océan profond */}
-            <div className="absolute inset-0 bg-[#0a2a2c]/30 mix-blend-color opacity-50" />
 
-            {/* Rayons de lumière sous-marine — depuis le haut */}
-            <div className="absolute top-0 left-[15%] w-20 h-64 bg-gradient-to-b from-[#a8ccc9]/12 via-[#75b9be]/04 to-transparent rotate-[-8deg] origin-top" />
-            <div className="absolute top-0 left-[45%] w-14 h-48 bg-gradient-to-b from-[#dceab2]/10 via-[#b3d6c6]/04 to-transparent rotate-[4deg] origin-top" />
-            <div className="absolute top-0 right-[12%] w-10 h-40 bg-gradient-to-b from-[#c7d66d]/08 via-transparent to-transparent rotate-[10deg] origin-top" />
+            {/* ── Voile parchemin ancien ── */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#f3e9d2]/[0.04] via-transparent to-[#114b5f]/20 mix-blend-overlay" />
 
-            {/* Lueur d'horizon — bande de lumière en bas */}
-            <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-[#75b9be]/15 via-[#a8ccc9]/05 to-transparent" />
+            {/* ── Lignes de latitude/longitude façon vieille carte ── */}
+            <svg className="absolute inset-0 w-full h-full opacity-[0.06]" viewBox="0 0 300 480" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Lignes horizontales (latitudes) */}
+              {[60, 120, 180, 240, 300, 360, 420].map(y => (
+                <line key={`lat-${y}`} x1="0" y1={y} x2="300" y2={y} stroke="#c6dabf" strokeWidth="0.5" strokeDasharray="6 4" />
+              ))}
+              {/* Lignes verticales (longitudes) */}
+              {[50, 100, 150, 200, 250].map(x => (
+                <line key={`lon-${x}`} x1={x} y1="0" x2={x} y2="480" stroke="#c6dabf" strokeWidth="0.5" strokeDasharray="6 4" />
+              ))}
+              {/* Lignes diagonales rhumb (routes de navigation) */}
+              <line x1="0" y1="480" x2="300" y2="0" stroke="#88d498" strokeWidth="0.4" strokeDasharray="8 6" opacity="0.5" />
+              <line x1="0" y1="0" x2="300" y2="480" stroke="#88d498" strokeWidth="0.4" strokeDasharray="8 6" opacity="0.3" />
+              <line x1="0" y1="240" x2="300" y2="60" stroke="#1a936f" strokeWidth="0.35" strokeDasharray="5 8" opacity="0.4" />
+            </svg>
 
-            {/* Boussole holographique — coin bas-droit */}
-            <div className="absolute bottom-5 right-5 w-20 h-20 opacity-18">
-              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Cercle extérieur */}
-                <circle cx="40" cy="40" r="36" stroke="#75b9be" strokeWidth="0.8" strokeDasharray="4 3" />
-                {/* Cercle intérieur */}
-                <circle cx="40" cy="40" r="24" stroke="#a8ccc9" strokeWidth="0.5" />
-                {/* Croix cardinale */}
-                <line x1="40" y1="4" x2="40" y2="16" stroke="#a8ccc9" strokeWidth="0.7" />
-                <line x1="40" y1="64" x2="40" y2="76" stroke="#a8ccc9" strokeWidth="0.7" />
-                <line x1="4" y1="40" x2="16" y2="40" stroke="#a8ccc9" strokeWidth="0.7" />
-                <line x1="64" y1="40" x2="76" y2="40" stroke="#a8ccc9" strokeWidth="0.7" />
-                {/* Aiguille Nord — jade */}
-                <polygon points="40,14 37,40 40,36 43,40" fill="#75b9be" opacity="0.9" />
-                {/* Aiguille Sud — beige */}
-                <polygon points="40,66 37,40 40,44 43,40" fill="#dceab2" opacity="0.6" />
+            {/* ── Rayons de soleil tropicaux depuis le haut ── */}
+            <div className="absolute top-0 left-[18%] w-16 h-56 bg-gradient-to-b from-[#f3e9d2]/10 via-[#88d498]/04 to-transparent rotate-[-10deg] origin-top" />
+            <div className="absolute top-0 left-[48%] w-12 h-44 bg-gradient-to-b from-[#c6dabf]/08 via-[#1a936f]/03 to-transparent rotate-[5deg] origin-top" />
+            <div className="absolute top-0 right-[14%] w-8 h-36 bg-gradient-to-b from-[#88d498]/07 via-transparent to-transparent rotate-[12deg] origin-top" />
+
+            {/* ── Rose des vents principale — coin bas-droite ── */}
+            <div className="absolute bottom-4 right-4 w-24 h-24 opacity-[0.22]">
+              <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Cercle extérieur gradué */}
+                <circle cx="48" cy="48" r="44" stroke="#c6dabf" strokeWidth="0.6" strokeDasharray="3 2.5" />
+                <circle cx="48" cy="48" r="34" stroke="#88d498" strokeWidth="0.4" />
+                <circle cx="48" cy="48" r="22" stroke="#1a936f" strokeWidth="0.5" />
+                {/* 16 points cardinaux fins */}
+                {[0,22.5,45,67.5,90,112.5,135,157.5,180,202.5,225,247.5,270,292.5,315,337.5].map((angle, i) => {
+                  const rad = (angle - 90) * Math.PI / 180;
+                  const inner = i % 4 === 0 ? 26 : i % 2 === 0 ? 30 : 34;
+                  const outer = 42;
+                  return (
+                    <line key={angle}
+                      x1={48 + inner * Math.cos(rad)} y1={48 + inner * Math.sin(rad)}
+                      x2={48 + outer * Math.cos(rad)} y2={48 + outer * Math.sin(rad)}
+                      stroke={i % 4 === 0 ? "#88d498" : "#c6dabf"} strokeWidth={i % 4 === 0 ? "0.8" : "0.4"}
+                    />
+                  );
+                })}
+                {/* Grande flèche Nord */}
+                <polygon points="48,6 45,48 48,42 51,48" fill="#88d498" opacity="0.95" />
+                {/* Grande flèche Sud */}
+                <polygon points="48,90 45,48 48,54 51,48" fill="#f3e9d2" opacity="0.55" />
+                {/* Flèche Est */}
+                <polygon points="90,48 48,45 54,48 48,51" fill="#c6dabf" opacity="0.5" />
+                {/* Flèche Ouest */}
+                <polygon points="6,48 48,45 42,48 48,51" fill="#c6dabf" opacity="0.5" />
                 {/* Centre */}
-                <circle cx="40" cy="40" r="2.5" fill="#a8ccc9" opacity="0.9" />
+                <circle cx="48" cy="48" r="3.5" fill="#1a936f" opacity="0.9" />
+                <circle cx="48" cy="48" r="1.5" fill="#f3e9d2" opacity="0.8" />
+                {/* Lettres cardinales */}
+                <text x="46" y="4" fontSize="5" fill="#88d498" opacity="0.8" fontFamily="serif">N</text>
+                <text x="46" y="95" fontSize="5" fill="#c6dabf" opacity="0.6" fontFamily="serif">S</text>
+                <text x="88" y="50" fontSize="5" fill="#c6dabf" opacity="0.6" fontFamily="serif">E</text>
+                <text x="2" y="50" fontSize="5" fill="#c6dabf" opacity="0.6" fontFamily="serif">O</text>
               </svg>
             </div>
 
-            {/* Texture papier parchemin — grille fine dorée-verte */}
-            <div className="absolute inset-0 bg-[radial-gradient(#c7d66d_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.04]" />
+            {/* ── Petite boussole secondaire — coin haut-gauche ── */}
+            <div className="absolute top-3 left-3 w-10 h-10 opacity-[0.18]">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="18" stroke="#88d498" strokeWidth="0.6" strokeDasharray="3 2" />
+                <line x1="20" y1="2" x2="20" y2="8" stroke="#c6dabf" strokeWidth="0.5" />
+                <line x1="20" y1="32" x2="20" y2="38" stroke="#c6dabf" strokeWidth="0.5" />
+                <line x1="2" y1="20" x2="8" y2="20" stroke="#c6dabf" strokeWidth="0.5" />
+                <line x1="32" y1="20" x2="38" y2="20" stroke="#c6dabf" strokeWidth="0.5" />
+                <polygon points="20,5 18.5,20 20,17 21.5,20" fill="#88d498" opacity="0.9" />
+                <polygon points="20,35 18.5,20 20,23 21.5,20" fill="#f3e9d2" opacity="0.5" />
+                <circle cx="20" cy="20" r="1.5" fill="#1a936f" />
+              </svg>
+            </div>
 
-            {/* Vignette bords */}
-            <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(10,42,44,0.55)] rounded-[24px]" />
+            {/* ── Ornements de coin (style cartouche ancien) ── */}
+            {/* Coin bas-gauche */}
+            <div className="absolute bottom-3 left-3 w-12 h-12 opacity-[0.14]">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 46 L2 10 Q2 2 10 2 L46 2" stroke="#c6dabf" strokeWidth="0.8" fill="none" strokeLinecap="round" />
+                <path d="M6 46 L6 14 Q6 6 14 6 L46 6" stroke="#88d498" strokeWidth="0.4" fill="none" strokeLinecap="round" />
+                <circle cx="8" cy="8" r="2" stroke="#1a936f" strokeWidth="0.6" />
+                <circle cx="14" cy="14" r="1" fill="#c6dabf" opacity="0.6" />
+              </svg>
+            </div>
+            {/* Coin haut-droit */}
+            <div className="absolute top-3 right-3 w-12 h-12 opacity-[0.14]">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M46 2 L46 38 Q46 46 38 46 L2 46" stroke="#c6dabf" strokeWidth="0.8" fill="none" strokeLinecap="round" />
+                <path d="M42 2 L42 34 Q42 42 34 42 L2 42" stroke="#88d498" strokeWidth="0.4" fill="none" strokeLinecap="round" />
+                <circle cx="40" cy="40" r="2" stroke="#1a936f" strokeWidth="0.6" />
+              </svg>
+            </div>
+
+            {/* ── Texture grain parchemin — points très fins ── */}
+            <div className="absolute inset-0 bg-[radial-gradient(#c6dabf_0.8px,transparent_0.8px)] [background-size:20px_20px] opacity-[0.035]" />
+
+            {/* ── Vieillissement — tache d'encre teal en haut ── */}
+            <div className="absolute -top-8 left-[30%] w-40 h-32 bg-[#114b5f]/20 blur-[30px] rounded-full" />
+
+            {/* ── Lueur horizon océan — bas de carte ── */}
+            <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#1a936f]/12 via-[#114b5f]/06 to-transparent" />
+
+            {/* ── Vignette bords sombres (parchemin usé) ── */}
+            <div className="absolute inset-0 shadow-[inset_0_0_50px_rgba(11,30,24,0.65)] rounded-[24px]" />
           </div>
         )
       };
@@ -1627,20 +1697,9 @@ export default function App() {
                     {cardAmbiance.showRivets && (
                       <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(255,255,255,0.05)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.05)_50%,rgba(255,255,255,0.05)_75%,transparent_75%,transparent)] bg-[length:4px_4px] opacity-15 pointer-events-none" />
                     )}
-                    <span className="relative z-10 flex items-center justify-center gap-1.5">
-                      {/* Guerrier : bullet rouge pulsant (Code 1) */}
-                      {parseClasse(formData.classe).mainClass === 'Guerrier' ? (
-                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#ff0000] animate-pulse shadow-[0_0_4px_#ef4444]" />
-                      ) : (
-                        <span className={`inline-block w-1.5 h-1.5 rounded-full animate-pulse ${cardAmbiance.accentColor}`} />
-                      )}
-                      {formData.classe || "GUERRIER / SOLDAT"}
-                      {parseClasse(formData.classe).mainClass === 'Guerrier' ? (
-                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#ff0000] animate-pulse shadow-[0_0_4px_#ef4444]" />
-                      ) : (
-                        <span className={`inline-block w-1.5 h-1.5 rounded-full animate-pulse ${cardAmbiance.accentColor}`} />
-                      )}
-                    </span>
+                  <span className="relative z-10 flex items-center justify-center px-2">
+                    {formData.classe || "GUERRIER / SOLDAT"}
+                  </span>
                   </span>
                 </div>
 
@@ -1690,7 +1749,7 @@ export default function App() {
                     }
                     if (mainClass === 'Explorateur') {
                       return {
-                        backgroundImage: `linear-gradient(to bottom, rgba(10, 42, 44, 0.45), rgba(13, 31, 26, 0.9)), url(${explorateurBackground})`,
+                        backgroundImage: `linear-gradient(to bottom, rgba(17, 75, 95, 0.5), rgba(10, 30, 24, 0.92)), url(${explorateurBackground})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundBlendMode: 'normal',
@@ -1760,7 +1819,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="h-[1px] bg-gradient-to-r from-transparent via-amber-600/20 to-transparent relative z-10" />
+                  <div className={`h-[1px] bg-gradient-to-r from-transparent ${parseClasse(formData.classe).mainClass === 'Explorateur' ? 'via-[#1a936f]/30' : 'via-amber-600/20'} to-transparent relative z-10`} />
 
                   {/* Traces d'épée sur Faille (Guerrier) */}
                   {cardAmbiance.showScratches && (
@@ -1772,7 +1831,7 @@ export default function App() {
 
                   {/* FAILLE CRITIQUE */}
                   <div className="relative z-10">
-                    <h4 className={`text-[7.5px] sm:text-[8px] font-black tracking-widest text-[#ff0000] uppercase mb-0.5 opacity-100 ${cardAmbiance.fontTitle}`}>
+                    <h4 className={`text-[7.5px] sm:text-[8px] font-black tracking-widest uppercase mb-0.5 opacity-100 ${cardAmbiance.fontTitle} ${parseClasse(formData.classe).mainClass === 'Explorateur' ? 'text-[#f3e9d2]' : 'text-[#ff0000]'}`}>
                       FAILLE CRITIQUE
                     </h4>
                     <p className={`text-[9.5px] sm:text-[10.5px] text-neutral-300 leading-tight line-clamp-2 ${cardAmbiance.fontData}`}>
@@ -1780,7 +1839,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="h-[1px] bg-gradient-to-r from-transparent via-amber-600/20 to-transparent relative z-10" />
+                  <div className={`h-[1px] bg-gradient-to-r from-transparent ${parseClasse(formData.classe).mainClass === 'Explorateur' ? 'via-[#1a936f]/30' : 'via-amber-600/20'} to-transparent relative z-10`} />
 
                   {/* ── CITATION ── */}
                   {/* Guerrier : border sang + bg-black/45 + Quote animate-pulse (Code 1 exact) */}

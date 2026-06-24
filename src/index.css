@@ -59,7 +59,43 @@
   animation: neonPulse 2s ease-in-out infinite alternate;
 }
 
-/* Custom golden-amber scrollbars */
+/* ── Explorateur · Charte Carte Ancienne ───────────────────────────────── */
+:root {
+  --dark-teal:      #114b5f;
+  --sea-green:      #1a936f;
+  --celadon:        #88d498;
+  --tea-green:      #c6dabf;
+  --vanilla-cream:  #f3e9d2;
+}
+
+/* Pulsation douce de la boussole explorateur */
+@keyframes compassPulse {
+  0%   { opacity: 0.16; transform: rotate(0deg) scale(1);    }
+  50%  { opacity: 0.26; transform: rotate(1deg) scale(1.02); }
+  100% { opacity: 0.16; transform: rotate(0deg) scale(1);    }
+}
+.compass-pulse {
+  animation: compassPulse 6s ease-in-out infinite;
+}
+
+/* Lueur de l'horizon océan */
+@keyframes horizonGlow {
+  0%   { opacity: 0.08; }
+  50%  { opacity: 0.18; }
+  100% { opacity: 0.08; }
+}
+.horizon-glow {
+  animation: horizonGlow 5s ease-in-out infinite;
+}
+
+/* Léger flottement des rayons de soleil tropicaux */
+@keyframes sunrayDrift {
+  0%   { transform: rotate(-10deg) scaleX(1);   opacity: 0.10; }
+  50%  { transform: rotate(-8deg)  scaleX(1.08); opacity: 0.14; }
+  100% { transform: rotate(-10deg) scaleX(1);   opacity: 0.10; }
+}
+
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -146,5 +182,3 @@
   animation: explosionPulse 4.5s ease-in-out infinite;
   z-index: 1;
 }
-
-
